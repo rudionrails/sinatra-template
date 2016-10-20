@@ -1,0 +1,65 @@
+#%RAML 0.8
+title: Rudionrails API Example
+version: v1
+baseUri: https://{env}.rudionrails.com/{version}
+baseUriParameters:
+  env:
+    description: In order to use the Sandbox environment set 'sandbox-api'. Otherwise set 'api'.
+    enum: [ api, staging.api, test.api ]
+mediaType: application/json
+schemas:
+  - document: !include schemas/document-schema.json
+  - postDocument: !include schemas/postDocument-schema.json
+traits:
+  - pageable: !include traits/pageable.raml
+
+/documents:
+  get:
+    is: [ pageable ]
+    description: Returns all documents
+    responses:
+      200:
+        body:
+          application/json:
+            schema: document
+            example: !include examples/getDocuments-example.json
+  post:
+    description: Create a document
+    responses:
+      201:
+        body:
+          application/json:
+            schema: document
+
+  /{id}:
+    uriParameters:
+      id:
+        description: The id of a document
+        type: string
+    get:
+      description: Get a single document.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: document
+    patch:
+      description: Edit a document.
+      body:
+        application/json:
+          schema: patchDocument
+      responses:
+        200:
+          body:
+            application/json:
+              schema: document
+    delete:
+      description: Delete a document.
+      responses:
+        204:
+          description: No content
+
+documentation:
+  - title: Home
+    content: |
+      Welcome to the rudionrails example API documentation.

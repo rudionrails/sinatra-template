@@ -1,0 +1,27 @@
+type: Basic Authentication
+description: |
+  Apply this schema on resource/method level to provide an additional security header.
+  This can be used for authenticating user or/and authorizing whether it has
+  sufficient rights to access given resource/method.
+
+describedBy:
+  headers:
+    Authorization:
+      description: |
+        A basic authorization header containing encoded user and password credential.
+        Respectively for your needs can be used to authenticate and/or authorize user.
+      type: string
+      pattern: Basic .*
+      required: true
+      example: Basic <<base64 for user:password>>
+
+  responses:
+      401:
+        description: |
+          Given request is unauthorized. The user credentials are not recognized by the system.
+          Any details will be provided within the response payload.
+      403:
+        description: |
+          Given request is forbidden. Though the credentials are correctly processed by the system,
+          the requested resource/method is not available for the given credentials.
+          Any details will be provided within the response payload.
