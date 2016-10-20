@@ -4,7 +4,7 @@ require 'sinatra/base'
 # Add your documentation for the HTTP service here.
 class Service < Sinatra::Base
   # Configure Sinatra to notify Airbrake about exceptions...
-  use Airbrake::Sinatra
+  use Airbrake::Rack::Middleware
 
   ##
   # GET /ping
