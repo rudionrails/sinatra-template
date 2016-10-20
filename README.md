@@ -1,5 +1,7 @@
 # Shore Sinatra Template
-[![Build Status](https://travis-ci.org/shore-gmbh/sinatra-template.svg?branch=master)](https://travis-ci.org/shore-gmbh/sinatra-template)
+[![Build Status](https://travis-ci.org/rudionrails/sinatra-template.svg?branch=master)](https://travis-ci.org/rudionrails/sinatra-template)
+[![Code Climate](https://codeclimate.com/github/rudionrails/sinatra-template.png)](https://codeclimate.com/github/rudionrails/sinatra-template)
+[![Coverage Status](https://coveralls.io/repos/rudionrails/sinatra-template/badge.png?branch=master)](https://coveralls.io/r/rudionrails/sinatra-template)
 
 ## Usage
 
